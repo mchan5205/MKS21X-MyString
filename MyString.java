@@ -25,6 +25,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     for (int i = 0; i < data.length; i ++){
       y += data[i];
     }
+    return y;
   }
   public int compareTo(CharSequence x){
     int length;
@@ -35,12 +36,18 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
       length = this.length();
     }
     for (int i = 0; i < length; i ++){
-      if (this.charAt(i) > x.charAt(i)){
-        return 1;
+      if (this.charAt(i) - x.charAt(i) > 0){
+        return this.charAt(i) - x.charAt(i);
       }
-      if (this.charAt(i) > x.charAt(i)){
-        return -1;
+      if (this.charAt(i) - x.charAt(i) < 0){
+        return this.charAt(i) - x.charAt(i);
       }
+    }
+    if (this.length() > x.length(){
+      return (int) this.charAt(x.length());
+    }
+    if (x.length > this.length()){
+      return (int) x.charAt(this.length());
     }
     return 0;
   }
