@@ -3,7 +3,7 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
   public MyString(CharSequence s){
     data = new char[];
     for (int i = 0; i < s.length(); i ++){
-      data[i] = s.subSequence(i, i + 1);
+      data[i] = s.charAt(i);
     }
   }
   public char charAt(int index){
@@ -25,5 +25,23 @@ public class MyString implements CharSequence,Comparable<CharSequence>{
     for (int i = 0; i < data.length; i ++){
       y += data[i];
     }
+  }
+  public int compareTo(CharSequence x){
+    int length;
+    if (this.length() > x.length()){
+      length = x.length();
+    }
+    else{
+      length = this.length();
+    }
+    for (int i = 0; i < length; i ++){
+      if (this.charAt(i) > x.charAt(i)){
+        return 1;
+      }
+      if (this.charAt(i) > x.charAt(i)){
+        return -1;
+      }
+    }
+    return 0;
   }
 }
